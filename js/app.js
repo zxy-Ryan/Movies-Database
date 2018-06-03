@@ -139,7 +139,7 @@ $(document).ready(function () {
                     htmlContent += '<h6 class="card-text" >' + 'Rlease Date: </h6>';
                     htmlContent += '<p class="card-text" >' + releaseDate + '</p>';
                     htmlContent += '<div class="row" style="height: 4rem;">';
-                    htmlContent += '<a href="https://www.themoviedb.org/movie/' + movieID + '"' + ' class="btn btn-primary" style="margin: 0.8rem;">Detail</a>';
+                    htmlContent += '<a href="https://www.themoviedb.org/movie/' + movieID + '"' + ' class="btn btn-primary" style="margin: 0.8rem;">Details</a>';
                     htmlContent += '</div>';
                     htmlContent += '</div>';
                     htmlContent += '</div>';
