@@ -73,20 +73,20 @@ $(document).ready(function () {
         input = $('.form-control').val();
         searchTitle(1);
         //re-arrange pages
+        var totalPages = 0;
         var pageNumber = 1;
         var searchURL = apiUrl + 'search/movie?api_key=' + apiKey + '&language=en-US&page=' + pageNumber + '&include_adult=false&query=' + input;
         $.getJSON(searchURL, function (MoviesIndex) {
             $('#page').append('current page on ' + pageNumber + ' of' + MoviesIndex.total_pages);
+            totalPages = MoviesIndex.total_pages;
         })
 
 
         $('#next').click(function () {
-            $('#card').html('');
+
             var htmlContent = '';
-            if (pageNumber == searchURL.total_pages) {
-                searchTitle(searchURL.total_pages);
-                $('#card').html(htmlContent);
-            } else {
+            if (pageNumber != totalPages) {
+                $('#card').html('');
                 pageNumber += 1;
                 searchTitle(pageNumber);
                 $('#card').html(htmlContent);
@@ -113,9 +113,7 @@ $(document).ready(function () {
 
     function searchTitle(page) {
         var searchURL = apiUrl + 'search/movie?api_key=' + apiKey + '&language=en-US&page=1&include_adult=false&query=' + input;
-        // console.log(searchURL);
         $.getJSON(searchURL, function (searchIndex) {
-            // console.log(searchIndex);
             for (let i = 0; i < searchIndex.results.length; i++) {
                 var movieID = searchIndex.results[i].id;
                 var currentMovie = apiUrl + 'movie/' + movieID + '/videos?api_key=' + apiKey;
@@ -149,9 +147,11 @@ $(document).ready(function () {
 
 
     var pageNumber = 1;
+    var totalPages = 0;
     getMovies(pageNumber);
     $.getJSON(allMoviesURL, function (MoviesIndex) {
         $('#page').append('current page on ' + pageNumber + ' of' + MoviesIndex.total_pages);
+        totalPages = MoviesIndex.total_pages;
     })
 
 
@@ -159,9 +159,9 @@ $(document).ready(function () {
 
     var htmlContent = '';
     $('#next').click(function () {
-        if (searched = false) {
-            if (pageNumber == allMoviesURL.total_pages) {
-                getMovies(allMoviesURL.total_pages);
+        if (searched == false) {
+            if (pageNumber == totalPages) {
+                getMovies(totalPages);
                 $('#card').html(htmlContent);
             } else {
                 pageNumber += 1;
@@ -176,13 +176,17 @@ $(document).ready(function () {
     })
 
     $('#previous').click(function () {
-        if (searched = false) {
+        if (searched == false) {
             if (pageNumber != 1) {
                 pageNumber -= 1;
                 getMovies(pageNumber);
                 $('#card').html(htmlContent);
             }
+            $.getJSON(allMoviesURL, function (MoviesIndex) {
+                $('#page').html('current page on ' + pageNumber + ' of' + MoviesIndex.total_pages);
+            })
         }
+
 
 
     })
