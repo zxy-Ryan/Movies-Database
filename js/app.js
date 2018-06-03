@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var apiUrl = 'http://api.themoviedb.org/3/';
+    var apiUrl = 'https://api.themoviedb.org/3/';
 
     var apiKey = '1ac542775457e8364e37c9dc09f924dd';
 
