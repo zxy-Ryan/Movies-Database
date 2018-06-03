@@ -125,7 +125,12 @@ $(document).ready(function () {
                     var overview = searchIndex.results[i].overview;
                     var rating = searchIndex.results[i].vote_average;
                     var htmlContent = '';
-                    htmlContent += '<div class="col-xs-7 col-sm-6 col-md-4 col-lg-3" style="padding-bottom: 2rem; display: inline-block">';
+                    if (searchIndex.results.length == 1) {
+                        htmlContent += '<div class="col-xs-7 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 2rem; display: inline-block">';
+                    } else {
+                        htmlContent += '<div class="col-xs-7 col-sm-6 col-md-4 col-lg-3" style="padding-bottom: 2rem; display: inline-block">';
+                    }
+
                     htmlContent += '<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 100%; height: 100%;" >';
                     htmlContent += '<img src="' + poster + '" style="height: 100%; width: 100%;"> ';
                     htmlContent += '<div class="card-body">';
