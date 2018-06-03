@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Movies Database</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Find Your Movie</h1>
+            <a href="https://github.com/zxy-Ryan/movies-browser">Go to Project Repo</a>
+        </div>
+
+
+    </header>
+
+    <main>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand" href="javascript:window.location.reload();" style="color: black">Movies Broswer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <form class="navbar-form navbar-right searchForm form-inline">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Input Title Here">
+                            </div>
+                            <button type="submit" class="btn btn-default" style="display: inline;">Search</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row" style="margin: 1.8rem; margin-top: 3rem;">
+
+
+            <div id="card">
+
+            </div>
+        </div>
+
+
+        <div class="pagination">
+            <p id=page></p>
+            <button type="button" id="previous" class="btn btn-link">&laquo;previous</button>
+            <button type="button" id="next" class="btn btn-link">next&raquo;</button>
+
+        </div>
+
+
+
+    </main>
+
+
+
+</body>
+
+</html>
